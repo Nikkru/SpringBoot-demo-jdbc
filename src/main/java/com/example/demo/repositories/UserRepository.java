@@ -40,8 +40,12 @@ public class UserRepository {
         jdbc.update(sql, id);
     }
 
-    public void updateById(int id) {
+    /**
+     *
+     * @param user экземпляр класса тебующий изменений
+     */
+    public void updateById(User user) {
         String sql = "UPDATE userTable SET firstName=?, lastName=? WHERE id=?";
-        jdbc.update(sql, id);
+        jdbc.update(sql, user.getFirstName(), user.getLastName(), user.getId());
     }
 }
